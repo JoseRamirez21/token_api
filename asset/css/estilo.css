@@ -1,0 +1,145 @@
+/* estilo.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    transform: scale(0.9);
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus {
+    border-color: #2575fc;
+    outline: none;
+    box-shadow: 0 0 10px rgba(37, 117, 252, 0.5);
+}
+
+input:hover {
+    border-color: #6a11cb;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2575fc;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #6a11cb;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+a {
+    color: #2575fc;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #6a11cb;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Estilos para el logo y el texto */
+.logo-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 40px;  /* Tamaño ajustado del logo */
+    height: auto;
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Transición entre login y registro */
+.register-form,
+.login-form {
+    transition: opacity 0.3s ease;
+}
+
+/* Estilo para formulario de registro */
+.register-form {
+    display: none;
+    opacity: 0;
+}
+
+.register-form.show {
+    display: block;
+    opacity: 1;
+}
