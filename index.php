@@ -1,11 +1,11 @@
 <?php
-session_start();
+// Iniciar sesión
+session_start(); // Asegúrate de que esta línea esté al principio del archivo
 
-// Si ya está autenticado, redirigir al dashboard
-if (isset($_SESSION['user_id'])) {
-    // Redirige a la página dashboard.php dentro de views
-    header("Location: /token_api/views/dashboard.php");
-    exit(); // Detener la ejecución del script aquí
+// Verificar si el usuario ya está autenticado
+if (isset($_SESSION['usuario_id'])) {
+    header('Location: views/dashboard.php'); // Redirigir al dashboard si ya está logueado
+    exit();
 }
 
 $error = ''; // Variable para mensajes de error
@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>

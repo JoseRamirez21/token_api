@@ -16,10 +16,10 @@ class LoginController {
 
         if ($usuario) {
             // Si las credenciales son correctas, iniciar la sesión
-            session_start();
+            session_start(); // Asegúrate de que esta línea esté aquí
             $_SESSION['usuario_id'] = $usuario['id']; // Guardar el ID del usuario en la sesión
-            $_SESSION['usuario_nombre'] = $usuario['nombre']; // Guardar el nombre del usuario
-            header('Location: dashboard.php'); // Redirigir al dashboard
+            $_SESSION['usuario_nombre'] = $usuario['nombre_usuario']; // Guardar el nombre del usuario
+            header('Location: views/dashboard.php'); // Redirigir al dashboard
             exit();
         } else {
             // Si las credenciales son incorrectas, mostrar un mensaje de error
@@ -27,3 +27,4 @@ class LoginController {
         }
     }
 }
+?>

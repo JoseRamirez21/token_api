@@ -19,10 +19,8 @@ class Usuario {
 
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($usuario) {
-            if (password_verify($clave, $usuario['clave'])) {
-                return $usuario;
-            }
+        if ($usuario && password_verify($clave, $usuario['clave'])) {
+            return $usuario;
         }
 
         return false;
@@ -57,3 +55,4 @@ class Usuario {
         return false; // Si ocurre algún error
     }
 }
+?>
