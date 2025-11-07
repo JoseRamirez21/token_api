@@ -3,7 +3,7 @@
 $host = 'localhost'; // Cambia a tu host de base de datos si es diferente
 $dbname = 'cliente_api'; // Nombre de tu base de datos
 $username = 'root'; // Nombre de usuario de la base de datos
-$password = ''; // Contraseña de la base de datos
+$password = 'root'; // Contraseña de la base de datos (Mac-Root)(Windows)
 
 // Crear la conexión PDO
 try {
