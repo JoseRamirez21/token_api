@@ -16,7 +16,7 @@ $tokens = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Turismo Perú</title>
+    <title>Dashboard - Cliente API</title>
     <link rel="icon" href="../asset/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -60,6 +60,23 @@ $tokens = $stmt->fetchAll(PDO::FETCH_ASSOC);
             width: 40px;
             height: 40px;
             border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e0e0e0;
         }
 
         .logout-button {
@@ -197,9 +214,13 @@ $tokens = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <nav>
     <div class="logo">
         <img src="../asset/img/logo.png" alt="Logo">
-        Turismo Perú
+        Cliente API - Turismo Perú
     </div>
-    <a href="../logout.php" class="logout-button">Cerrar sesión</a>
+    <div class="nav-links">
+        <a href="dashboard.php"><i class="fa-solid fa-key"></i> Tokens</a>
+        <a href="index_api.php"><i class="fa-solid fa-map-location-dot"></i> Buscar Lugares</a>
+        <a href="../logout.php" class="logout-button">Cerrar sesión</a>
+    </div>
 </nav>
 
 <main>
