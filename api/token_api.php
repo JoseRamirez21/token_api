@@ -3,7 +3,7 @@ header("Content-Type: application/json");
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../controllers/TokenApiController.php';
 
-$controller = new TokenApiController($pdo);
+$controller = new TokenApiController($pdo_cons);
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {

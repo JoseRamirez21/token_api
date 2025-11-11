@@ -7,9 +7,10 @@ if (!isset($_SESSION['usuario_id'])) {
 
 require_once __DIR__ . '/../config/config.php';
 
-// Obtener los tokens de la BD
-$stmt = $pdo->query("SELECT * FROM token_api");
+// Obtener los tokens de la base de datos del sistema consumidor
+$stmt = $pdo_cons->query("SELECT * FROM token_api");
 $tokens = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

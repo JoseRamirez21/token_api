@@ -1,19 +1,30 @@
 <?php
-// Configuración de la base de datos
-$host = 'localhost'; // Cambia a tu host de base de datos si es diferente
-$dbname = 'cliente_api'; // Nombre de tu base de datos
-$username = 'root'; // Nombre de usuario de la base de datos
-$password = ''; // Contraseña de la base de datos (Mac-Root)(Windows)
+// ==========================
+// CONFIGURACIÓN DE BASES DE DATOS
+// ==========================
 
-// Crear la conexión PDO
+// Sistema Consumidor
+$host_cons = 'localhost';
+$dbname_cons = 'cliente_api';
+$user_cons = 'root';
+$pass_cons = '';
+
+// Sistema Principal
+$host_princ = 'localhost';
+$dbname_princ = 'turismo_peru';
+$user_princ = 'root';
+$pass_princ = '';
+
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    // Configurar el modo de errores de PDO para excepciones
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // Configurar el charset a utf8 para manejar correctamente caracteres especiales
-    $pdo->exec("SET NAMES 'utf8'");
+    // Conexión consumidor
+    $pdo_cons = new PDO("mysql:host=$host_cons;dbname=$dbname_cons;charset=utf8mb4", $user_cons, $pass_cons);
+    $pdo_cons->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Conexión principal
+    $pdo_princ = new PDO("mysql:host=$host_princ;dbname=$dbname_princ;charset=utf8mb4", $user_princ, $pass_princ);
+    $pdo_princ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 } catch (PDOException $e) {
-    // Si hay un error, mostrarlo
-    die("Conexión fallida: " . $e->getMessage());
+    die("Error de conexión: " . $e->getMessage());
 }
 ?>
