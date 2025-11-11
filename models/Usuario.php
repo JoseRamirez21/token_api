@@ -3,17 +3,17 @@ require_once __DIR__ . '/../config/config.php';
 
 class Usuario {
 
-    private $pdo;
+    private $pdo_cons;
 
     public function __construct() {
-        global $pdo;
-        $this->pdo = $pdo;
+        global $pdo_cons;
+        $this->pdo_cons = $pdo_cons;
     }
 
     // Verificar las credenciales del usuario
     public function verificarCredenciales($correo, $clave) {
         $sql = "SELECT * FROM usuarios WHERE correo = :correo";
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo_cons->prepare($sql);
         $stmt->bindParam(':correo', $correo);
         $stmt->execute();
 
@@ -30,7 +30,7 @@ class Usuario {
     public function registrarUsuario($nombre_usuario, $correo, $clave) {
         // Verificar si el correo ya está registrado
         $sql = "SELECT * FROM usuarios WHERE correo = :correo";
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo_cons->prepare($sql);
         $stmt->bindParam(':correo', $correo);
         $stmt->execute();
 
@@ -43,7 +43,7 @@ class Usuario {
 
         // Insertar el nuevo usuario
         $sql = "INSERT INTO usuarios (nombre_usuario, correo, clave) VALUES (:nombre_usuario, :correo, :clave)";
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo_cons->prepare($sql);
         $stmt->bindParam(':nombre_usuario', $nombre_usuario);
         $stmt->bindParam(':correo', $correo);
         $stmt->bindParam(':clave', $hashed_password);
