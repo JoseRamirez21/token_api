@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2025 a las 23:18:52
+-- Tiempo de generación: 12-11-2025 a las 22:07:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -51,11 +51,7 @@ CREATE TABLE `token_api` (
 --
 
 INSERT INTO `token_api` (`id`, `token`, `ultima_actualizacion`) VALUES
-(1, 'c72f9b3a4d6e11ee9a9b0242ac1111', '2025-11-03 22:18:18'),
-(2, 'a91b7d9c2e1f4a6b9c3d8e7f1a2b5c6s', '2025-11-03 22:16:18'),
-(3, 'f1e2d3c4b5a6978899e8d7c6b5a4f3e2', '2025-11-03 22:14:03'),
-(4, '9a8b7c6d5e4f3a2b1c9d8e7f6a5b4c3d', '2025-11-03 22:14:03'),
-(5, '2d4f6a8c1e3b5d7f9a0c2e4b6d8f0a1b', '2025-11-03 22:14:03');
+(1, '77790ffa98bfe3f332365ff43afdddf7-2', '2025-11-11 22:08:48');
 
 -- --------------------------------------------------------
 
