@@ -5,6 +5,13 @@ if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../index.php");
     exit();
 }
+
+// ======================================
+// OBTENER EL TOKEN AUTOMÁTICO DESDE BD LOCAL
+// ======================================
+$stmt = $pdo_cons->query("SELECT token FROM token_api LIMIT 1");
+$tokenRow = $stmt->fetch(PDO::FETCH_ASSOC);
+$token = $tokenRow ? $tokenRow['token'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -191,10 +198,12 @@ if (!isset($_SESSION['usuario_id'])) {
 
 <main>
     <h1>🌎 Buscador Turístico</h1>
+
     <form id="formBusqueda" class="search-box">
-        <input type="text" id="token" placeholder="Ingresa tu token" value="77790ffa98bfe3f332365ff43afdddf7-2" required>
+        <!-- ✅ TOKEN AUTOMÁTICO -->
+        <input type="hidden" id="token" value="<?= htmlspecialchars($token) ?>">
         <input type="text" id="dato" name="dato" placeholder="Buscar lugares..." required>
-        <input type="hidden" id="url_api" value="http://localhost/turismo2025">
+        <input type="hidden" id="url_api" value="https://turismo2025.404brothers.com.pe">
         <button type="submit">🔍 Buscar</button>
     </form>
 
@@ -202,5 +211,18 @@ if (!isset($_SESSION['usuario_id'])) {
 </main>
 
 <script src="script.js?v=<?php echo time(); ?>"></script>
+
+<!-- ✅ ALERTA SI NO HAY TOKEN ACTIVO -->
+<?php if (empty($token)): ?>
+<script>
+Swal.fire({
+  icon: 'warning',
+  title: 'Token no configurado',
+  text: 'No se encontró un token activo en el sistema consumidor. Por favor, agrega uno desde el panel de tokens.',
+  confirmButtonText: 'Entendido'
+});
+</script>
+<?php endif; ?>
+
 </body>
 </html>
