@@ -215,7 +215,7 @@ $token = $tokenRow ? $tokenRow['token'] : '';
 <!-- ✅ ALERTA SI NO HAY TOKEN ACTIVO -->
 <?php if (empty($token)): ?>
 <script>
-Swal.fire({
+Swal.fire({ 
   icon: 'warning',
   title: 'Token no configurado',
   text: 'No se encontró un token activo en el sistema consumidor. Por favor, agrega uno desde el panel de tokens.',
