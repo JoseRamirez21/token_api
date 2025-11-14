@@ -6,13 +6,13 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-// ======================================
+
 // OBTENER EL TOKEN AUTOMÁTICO DESDE BD LOCAL
-// ======================================
 $stmt = $pdo_cons->query("SELECT token FROM token_api LIMIT 1");
 $tokenRow = $stmt->fetch(PDO::FETCH_ASSOC);
 $token = $tokenRow ? $tokenRow['token'] : '';
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

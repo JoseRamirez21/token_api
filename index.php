@@ -1,14 +1,14 @@
 <?php
 // Iniciar sesión
-session_start(); // Asegúrate de que esta línea esté al principio del archivo
+session_start(); 
 
 // Verificar si el usuario ya está autenticado
 if (isset($_SESSION['usuario_id'])) {
-    header('Location: views/dashboard.php'); // Redirigir al dashboard si ya está logueado
+    header('Location: views/dashboard.php'); 
     exit();
 }
 
-$error = ''; // Variable para mensajes de error
+$error = ''; 
 
 // Verificar si el formulario fue enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
