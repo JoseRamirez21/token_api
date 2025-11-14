@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario_id'])) {
 
 
 // OBTENER EL TOKEN AUTOMÁTICO DESDE BD LOCAL
-$stmt = $pdo_cons->query("SELECT token FROM token_api LIMIT 1");
+$stmt = $pdo_cons->query("SELECT token FROM token_api");
 $tokenRow = $stmt->fetch(PDO::FETCH_ASSOC);
 $token = $tokenRow ? $tokenRow['token'] : '';
 ?>
